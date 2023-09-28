@@ -1,0 +1,17 @@
+Enter -100 for both high and low once done!
+Enter high_temp: 30
+Enter low_temp: 25
+Enter high_temp: 20
+Enter low_temp: 15
+Enter high_temp: 27
+Enter low_temp: 19
+Enter high_temp: 18
+Enter low_temp: 12
+Enter high_temp: 34
+Enter low_temp: 27
+Enter high_temp: 17
+Enter low_temp: 9
+Enter high_temp: -100
+Enter low_temp: -100
+The record high_temp over 7 days was 34f
+The record low_temp over 7 days was 9f

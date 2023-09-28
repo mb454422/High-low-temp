@@ -1,21 +1,39 @@
-Script started on 2023-09-28 16:14:03-04:00 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="139" LINES="16"]
-[?2004h]0;matt@Cornholio: ~/CS2400/labs/lab5/High-low-temp[01;32mmatt@Cornholio[00m:[01;34m~/CS2400/labs/lab5/High-low-temp[00m$ ./a.out
-[?2004lEnter -100 once done!
-Enter high_temp: 32
-Enter low_temp: 20
-Enter high_temp: 3 25.5
-Enter low_temp: 14
-Enter high_temp: 18
-Enter low_temp: 12
-Enter high_temp: 36
-Enter low_temp: 1 27
-Enter high_temp: 16
-Enter low_temp: 9
-Enter high_temp: -100
-Enter low_temp: 1 -100
-The record high_temp over 6 days was 36f
-The record low_temp over 6 days was 9f
-[?2004h]0;matt@Cornholio: ~/CS2400/labs/lab5/High-low-temp[01;32mmatt@Cornholio[00m:[01;34m~/CS2400/labs/lab5/High-low-temp[00m$ exit
-[?2004lexit
+/**
+ *   @file: high_temp-low_temp-temp.cc
+ * @author: Matthew Boucher
+ *   @date: 9/28/23
+ *  @brief: A program that recordes the high_tempest and low_tempest 
+ * tempretures in a given time frame.
+ */
 
-Script done on 2023-09-28 16:15:39-04:00 [COMMAND_EXIT_CODE="0"]
+#include <iostream>
+#include <cstdlib>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    double high_temp,low_temp,rhigh_temp=-1000,rlow_temp=1000;
+    int day_count=0; // to display pereod of time it was over. 
+
+cout<<"Enter -100 for both high and low once done!"<<endl;//display starts here, tells user sentinal value.  
+    while(high_temp != -100 && low_temp != -100)// as long as the inputs are not the sentinal it will loop
+    {
+        cout<<"Enter high_temp: "; //input
+        cin>> high_temp;
+        cout<<"Enter low_temp: ";
+        cin>> low_temp;
+    
+        if (high_temp >= rhigh_temp) // these ifs will see if the dayly temp is higher or lower than the record 
+        {
+            rhigh_temp = high_temp;
+        }
+        if (low_temp <= rlow_temp && low_temp != -100)
+        {
+            rlow_temp= low_temp;
+        }
+        day_count++;//tracking the days 
+    }
+    cout<<"The record high_temp over "<<day_count<<" days was "<<rhigh_temp<<"f"<<endl;//output
+    cout<<"The record low_temp over "<<day_count<<" days was "<<rlow_temp<<"f"<<endl; 
+}
